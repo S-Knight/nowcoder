@@ -13,12 +13,12 @@ class Solution
     private $map = [];
 
     /**
-     * @var array x轴的辅助数组
+     * @var array x轴的辅助数组，记录x<=i的房子的总数，对应解题报告中的ai
      */
     private $xHelp = [];
 
     /**
-     * @var array y轴的辅助数组
+     * @var array y轴的辅助数组，记录x<=j的房子的总数，对应解题报告中的bj
      */
     private $yHelp = [];
 
@@ -27,6 +27,9 @@ class Solution
      */
     private $distances = [];
 
+    /**
+     * @var int 正方形的边长
+     */
     private $num = 0;
 
     /**
@@ -40,6 +43,9 @@ class Solution
         $this->calDistances();
     }
 
+    /**
+     * 初始化辅助数组
+     */
     private function initHelp()
     {
         for ($i = 0; $i < $this->num; $i++) {
@@ -53,6 +59,9 @@ class Solution
         }
     }
 
+    /**
+     * 初始化距离和结果数组（各个点的结果）
+     */
     private function initDistances()
     {
         for ($i = 0; $i < $this->num; $i++) {
@@ -64,6 +73,9 @@ class Solution
         }
     }
 
+    /**
+     *初始化
+     */
     private function init()
     {
         $this->getInput();
@@ -130,6 +142,9 @@ class Solution
         }
     }
 
+    /**
+     * @param $houseJ
+     */
     private function markYHelp($houseJ)
     {
         for ($i = 0; $i < $this->num; $i++) {
@@ -139,6 +154,9 @@ class Solution
         }
     }
 
+    /**
+     * 获取输入数据
+     */
     private function getInput()
     {
         fscanf(STDIN, "%d", $this->num);
@@ -149,6 +167,9 @@ class Solution
         }
     }
 
+    /**
+     * 根据公式计算各个点的距离和，详见解题报告中公式的推导过程
+     */
     private function calDistances()
     {
         $this->distances[0][0] = $this->getDistanceSum(0, 0);
