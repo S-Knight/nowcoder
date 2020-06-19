@@ -36,6 +36,6 @@ if (fscanf(STDIN, "%d", $N) == 1) {
             }
         }
     }
-}
 
-echo $maxSum . "\n";
+    echo $maxSum . "\n";
+}
